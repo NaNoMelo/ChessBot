@@ -34,37 +34,11 @@ bot.on("messageCreate", async (message) => {
     }
 
     if (message.content == "board") {
-        //showBoard()
-        const board = createCanvas(config.board.width,config.board.height)
-        const ctx = board.getContext("2d")
-
-        ctx.beginPath()
-        ctx.fillStyle = "green"
-        ctx.fillRect(0,0,board.width,board.height)
-        ctx.lineWidth = board.width/20
-        ctx.strokeStyle = "orange"
-        ctx.rect(board.width/10,board.height/10,8*board.width/10,8*board.height/10)
-        ctx.stroke()
-        for (let x=0;x<8;x++){
-            for (let y=0;y<8;y++){
-                if ((x+y)%2==1){
-                    ctx.fillStyle = "white"
-                }else{
-                    ctx.fillStyle = "black"
-                }
-                ctx.fillRect((x+1)*(board.width/10),(y+1)*(board.height/10),board.width/10,board.height/10)
-            }
-        }
-
-        
-        const out = fs.createWriteStream(__dirname + '/board.png')
-        const stream = board.createPNGStream()
-        stream.pipe(out)
-        out.on('finish', () =>  console.log('The PNG file was created.'))
+        generateBoard(message.author.id)
 
         message.channel.send({
             files: [{
-                attachment: './board.png',
+                attachment: `./boards/board${gameID}.png`,
                 name: 'board.png',
                 description: 'Plateau de Jeu'
               }]
@@ -72,26 +46,33 @@ bot.on("messageCreate", async (message) => {
     }
 })
 
-/*function showBoard() {
-    const board = createCanvas(config.board.width,config.board.height)
+function generateBoard(gameID){
+    const board = createCanvas(config.board.size,config.board.size)
     const ctx = board.getContext("2d")
 
+    ctx.beginPath()
+    ctx.fillStyle = "green"
+    ctx.fillRect(0,0,board.width,board.height)
+    ctx.lineWidth = board.width/20
+    ctx.strokeStyle = "orange"
+    ctx.rect(board.width/10,board.height/10,8*board.width/10,8*board.height/10)
+    ctx.stroke()
     for (let x=0;x<8;x++){
         for (let y=0;y<8;y++){
-            if (x+y%2==1){
+            if ((x+y)%2==1){
                 ctx.fillStyle = "white"
             }else{
                 ctx.fillStyle = "black"
             }
-            ctx.fillRect((x+1)*(config.board.width/10),(y+1)*(config.board.height/10),config.board.width/10,config.board.height/10)
+            ctx.fillRect((x+1)*(board.width/10),(y+1)*(board.height/10),board.width/10,board.height/10)
         }
     }
-    ctx.stroke
+
     
-    const out = fs.createWriteStream(__dirname + '/board.png')
-    const stream = canvas.createPNGStream()
+    const out = fs.createWriteStream(`./boards/board${gameID}.png`)
+    const stream = board.createPNGStream()
     stream.pipe(out)
     out.on('finish', () =>  console.log('The PNG file was created.'))
-}*/
+}
 
 bot.login(config.bot.token)
