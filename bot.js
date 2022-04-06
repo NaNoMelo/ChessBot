@@ -1,7 +1,9 @@
 const { Client, Intents } = require("discord.js");
-const { createCanvas, loadImage, Canvas } = require('canvas')
+const { createCanvas, loadImage, Image , Canvas } = require('canvas')
 const config = require("./config.json");
 const fs = require('fs')
+const games = require("./games.json");
+
 
 const bot = new Client({intents:[Intents.FLAGS.GUILDS,Intents.FLAGS.GUILD_MESSAGES]});
 
@@ -38,7 +40,7 @@ bot.on("messageCreate", async (message) => {
 
         message.channel.send({
             files: [{
-                attachment: `./boards/board${gameID}.png`,
+                attachment: `./boards/board${message.author.id}.png`,
                 name: 'board.png',
                 description: 'Plateau de Jeu'
               }]
@@ -64,7 +66,14 @@ function generateBoard(gameID){
             }else{
                 ctx.fillStyle = "black"
             }
+
             ctx.fillRect((x+1)*(board.width/10),(y+1)*(board.height/10),board.width/10,board.height/10)
+            
+            img = new Image()
+            //loadImage(`./pieces/${games.default[y][x]}.png`.toString())
+            img.onload = () => ctx.drawImage(img,board.width/10*(1+x),board.height/10*(1+y),board.width/10,board.height/10)
+            img.onerror = err => { throw err }
+            img.src = `./pieces/${games.default[y][x]}.png`.toString()
         }
     }
 
