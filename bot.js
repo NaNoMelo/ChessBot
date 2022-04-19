@@ -3,6 +3,7 @@ const { createCanvas, loadImage, Image , Canvas } = require('canvas')
 const config = require("./config.json");
 const fs = require('fs')
 const games = require("./games.json");
+require('dotenv').config();
 
 
 const bot = new Client({intents:[Intents.FLAGS.GUILDS,Intents.FLAGS.GUILD_MESSAGES]});
@@ -37,13 +38,14 @@ bot.on("messageCreate", async (message) => {
 
     if (message.content == "board") {
         generateBoard(message.author.id)
-
-        message.channel.send({
-            files: [{
-                attachment: `./boards/board${message.author.id}.png`,
-                name: 'board.png',
-                description: 'Plateau de Jeu'
-              }]
+        .then(()=>{
+            message.channel.send({
+                files: [{
+                    attachment: `./boards/board${message.author.id}.png`,
+                    name: 'board.png',
+                    description: 'Plateau de Jeu'
+                }]
+            })
         })
     }
 })
@@ -68,20 +70,27 @@ function generateBoard(gameID){
             }
 
             ctx.fillRect((x+1)*(board.width/10),(y+1)*(board.height/10),board.width/10,board.height/10)
-            
+
             img = new Image()
-            //loadImage(`./pieces/${games.default[y][x]}.png`.toString())
             img.onload = () => ctx.drawImage(img,board.width/10*(1+x),board.height/10*(1+y),board.width/10,board.height/10)
             img.onerror = err => { throw err }
             img.src = `./pieces/${games.default[y][x]}.png`.toString()
         }
     }
 
+    fs.readFile(`./boards/board${gameID}.png`, 'utf8', (err, data) => {
+        const content = data;
+        console.log(content);
+    }).then(()=>{
+        const out = fs.createWriteStream(`./boards/board${gameID}.png`)
+        const stream = board.createPNGStream()
+        stream.pipe(out)
+        out.on('finish', () =>  console.log('The PNG file was created.'))
+    })
+
     
-    const out = fs.createWriteStream(`./boards/board${gameID}.png`)
-    const stream = board.createPNGStream()
-    stream.pipe(out)
-    out.on('finish', () =>  console.log('The PNG file was created.'))
+
+    return 0;
 }
 
-bot.login(config.bot.token)
+bot.login(process.env.BOT_TOKEN)
