@@ -32,14 +32,14 @@ bot.on("messageCreate", async (message) => {
         }
     }
 
-    if (message.content == "image") {
-        message.channel.send({
-            files: [{
-                attachment: './chesscom_pawn.png',
-                name: 'chesscom_pawn.png',
-                description: 'Une image'
-              }]
-        })
+    if (message.content == "game") {
+        for (let i = 0;i<games.games.size();i++){
+            if (games.games[i].j1 == message.author.id.toString()){
+
+            }else if (games.games[i].j2 == message.author.id.toString()){
+
+            }
+        }
     }
 
     if (message.content == "board") {
@@ -87,15 +87,6 @@ function generateBoard(gameID){
 
     const buffer = board.toBuffer("image/png");
     fs.writeFileSync(`./boards/board${gameID}.png`, buffer);
-    /* const out = fs.createWriteStream(`./boards/board${gameID}.png`)
-    const stream = board.createPNGStream()
-    stream.pipe(out)
-    out.on('finish', () =>  console.log('The PNG file was created.')) */
-    
-
-    
-
-    return 0;
 }
 
 bot.login(process.env.BOT_TOKEN)

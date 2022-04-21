@@ -3,7 +3,7 @@
         "prefix":"c"
     },
     "board" :{
-        "size":1280
+        "size":640
     }
 }
 
