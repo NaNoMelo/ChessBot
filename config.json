@@ -1,9 +1,8 @@
 {
-    "bot" :{
-        "prefix":"c"
+    "bot": {
+        "prefix": "c"
     },
-    "board" :{
-        "size":640
+    "board": {
+        "size": 640
     }
-    
 }
