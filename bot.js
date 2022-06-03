@@ -2,6 +2,7 @@ const { Client, Intents, Formatters } = require("discord.js")
 const fs = require("fs")
 const { generateBoard } = require("./board.js")
 const config = require("./config.json")
+const { verifyMove } = require("./game.js")
 const games = require("./games.json")
 require("dotenv").config()
 
@@ -28,19 +29,30 @@ bot.on("messageCreate", async (message) => {
         const args = message.content.slice(config.bot.prefix.length).trim().split(/ +/g)
         const command = args.shift().toLowerCase()
 
+        let gameID
+        let player
+        for (let i = 0; i < games.games.length; i++) {
+            if (games.games[i].j1 == message.author.id.toString()) {
+                gameID = i
+                player = 1
+            } else if (games.games[i].j2 == message.author.id.toString()) {
+                gameID = i
+                player = 2
+            }
+        }
+
         switch (command) {
             case "ping":
                 message.reply("Pong!")
                 break
 
             case "test":
-                games.games[0].j1 = 0
-                console.log(games.default)
+                console.log(Math.sign(-1000))
                 break
 
             case "board":
-                generateBoard(0,1)
-                generateBoard(0,2)
+                generateBoard(0, 1)
+                generateBoard(0, 2)
                 message.channel.send({
                     files: [
                         {
@@ -58,36 +70,25 @@ bot.on("messageCreate", async (message) => {
                 break
 
             case "challenge":
-                let gameID
-                let player
-                for (let i = 0; i < games.games.length; i++) {
-                    if (games.games[i].j1 == message.author.id.toString()) {
-                        gameID = i
-                        player = 1
-                    } else if (games.games[i].j2 == message.author.id.toString()) {
-                        gameID = i
-                        player = 2
-                    }
-                }
-
                 if (gameID == undefined) {
                     if (args[0] == undefined) {
                         message.reply("Merci de mentionner la personne à défier")
                     } else if (message.mentions.users.first() == undefined) {
                         message.reply("Mention invalide")
-                    } else if (message.mentions.users.first().id == undefined) { //message.author.id
+                    } else if (message.mentions.users.first().id == undefined) {
+                        //message.author.id
                         message.reply("Vous ne pouvez pas vous défier vous même")
                     } else if (message.mentions.users.first().bot || message.mentions.users.first().system) {
                         message.reply("Vous ne pouvez pas défier un bot")
                     } else {
                         if (Math.random() < 0.5) {
-                            test = new game(message.author.id, message.mentions.users.first().id)
+                            challenge = new game(message.author.id, message.mentions.users.first().id)
                             player = 1
                         } else {
-                            test = new game(message.mentions.users.first().id, message.author.id)
+                            challenge = new game(message.mentions.users.first().id, message.author.id)
                             player = 2
                         }
-                        gameID = games.games.push(test) - 1
+                        gameID = games.games.push(challenge) - 1
 
                         generateBoard(gameID, 1)
 
@@ -103,7 +104,7 @@ bot.on("messageCreate", async (message) => {
                         })
                     }
                 } else {
-                    let opponent 
+                    let opponent
                     if (player == 1) {
                         opponent = Formatters.userMention(games.games[gameID].j2)
                     } else {
@@ -113,6 +114,34 @@ bot.on("messageCreate", async (message) => {
                 }
 
                 fs.writeFileSync("./games.json", JSON.stringify(games, null, 4))
+                break
+
+            case "move":
+                if (args[0] == undefined) {
+                    message.reply("Veuiller indiquer le déplacement à effectuer")
+                } else {
+                    let i = 1
+                    console.log(args)
+                    while (args[i] != undefined){
+                        args[0] += args[i]
+                        i++
+                    }
+                    console.log(args)
+                    var move = args[0].toLowerCase().split("")
+                    console.log(move)
+                    if (move[0].match(/[a-h]/) && move[1].match(/[1-8]/) && move[2].match(/[a-h]/) && move[3].match(/[1-8]/) && args[0].length == 4) {
+                        move[0] = move[0].charCodeAt(0) - 96
+                        move[1] = Number(move[1])
+                        move[2] = move[2].charCodeAt(0) - 96
+                        move[3] = Number(move[3])
+                        console.log(move)
+                        verifyMove(gameID,player,move)
+                        
+
+                    } else {
+                        message.reply("Déplacement invalide")
+                    }
+                }
                 break
         }
     }

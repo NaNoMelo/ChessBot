@@ -10,6 +10,13 @@ for (let i = 0; i <= 12; i++) {
     pieces[i].src = `./pieces/${i}.png`.toString()
 }
 
+/**
+ * PNG Board generation.
+ * Generates Board PNG from game matrix. 
+ * @param {*} gameID 
+ * @param {*} player 
+ */
+
 const generateBoard = function (gameID, player) {
     const board = new Canvas(config.board.size, config.board.size)
     const ctx = board.getContext("2d")

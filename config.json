@@ -1,6 +1,6 @@
 {
     "bot": {
-        "prefix": "c"
+        "prefix": "+"
     },
     "board": {
         "size": 640
