@@ -122,7 +122,7 @@ bot.on("messageCreate", async (message) => {
                 } else {
                     let i = 1
                     console.log(args)
-                    while (args[i] != undefined){
+                    while (args[i] != undefined) {
                         args[0] += args[i]
                         i++
                     }
@@ -135,8 +135,8 @@ bot.on("messageCreate", async (message) => {
                         move[2] = move[2].charCodeAt(0) - 96
                         move[3] = Number(move[3])
                         console.log(move)
-                        verifyMove(gameID,player,move)
-                        
+                        verifyMove(gameID, player, move)
+
 
                     } else {
                         message.reply("Déplacement invalide")
