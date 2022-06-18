@@ -4,9 +4,17 @@ const { generateBoard } = require("./board.js")
 const config = require("./config.json")
 const { verifyMove } = require("./game.js")
 const games = require("./games.json")
+const { ExtendedClient } = require("./classes/Client.js")
 require("dotenv").config()
 
-const bot = new Client({
+const client = new ExtendedClient()
+module.exports = {
+    client
+}
+
+client.start()
+
+/*const bot = new Client({
     intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES]
 })
 
@@ -147,4 +155,4 @@ bot.on("messageCreate", async (message) => {
     }
 })
 
-bot.login(process.env.BOT_TOKEN)
+bot.login(process.env.BOT_TOKEN)*/
