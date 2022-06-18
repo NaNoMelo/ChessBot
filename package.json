@@ -1,28 +1,33 @@
 {
-  "name": "chessbot",
-  "version": "1.0.0",
-  "description": "Discord bot made for playing chess against friends",
-  "main": "bot.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/NaNoMelo/ChessBot.git"
-  },
-  "keywords": [
-    "Chess",
-    "Bot"
-  ],
-  "author": "NaNo",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/NaNoMelo/ChessBot/issues"
-  },
-  "homepage": "https://github.com/NaNoMelo/ChessBot#readme",
-  "dependencies": {
-    "canvas": "^2.9.1",
-    "discord.js": "^13.6.0",
-    "dotenv": "^16.0.0"
-  }
+    "name": "chessbot",
+    "version": "1.0.0",
+    "description": "Discord bot made for playing chess against friends",
+    "main": "bot.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "nodemon src/index.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/NaNoMelo/ChessBot.git"
+    },
+    "keywords": [
+        "Chess",
+        "Bot"
+    ],
+    "author": "NaNo",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/NaNoMelo/ChessBot/issues"
+    },
+    "homepage": "https://github.com/NaNoMelo/ChessBot#readme",
+    "dependencies": {
+        "canvas": "^2.9.1",
+        "discord.js": "^13.6.0",
+        "dotenv": "^16.0.0",
+        "glob": "^8.0.3"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.3"
+    }
 }
