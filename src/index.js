@@ -1,10 +1,9 @@
 const { Client, Intents, Formatters } = require("discord.js")
 const fs = require("fs")
-const { generateBoard } = require("./board.js")
 const config = require("./config.json")
-const { verifyMove } = require("./game.js")
 const games = require("./games.json")
 const { ExtendedClient } = require("./classes/Client.js")
+const { Game } = require("./classes/Chess.js")
 require("dotenv").config()
 
 const client = new ExtendedClient()
@@ -14,11 +13,9 @@ module.exports = {
 
 client.start()
 
-/*const bot = new Client({
-    intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES]
-})
+console.log(new Game())
 
-class game {
+/*class game {
     constructor(j1ID, j2ID) {
         this.j1 = j1ID
         this.j2 = j2ID

@@ -1,0 +1,326 @@
+{
+    "board": [
+        [
+            {
+                "typePiece": 0,
+                "couleurPiece": 0,
+                "turns": 0
+            },
+            {
+                "typePiece": 1,
+                "couleurPiece": 2,
+                "turns": 0
+            },
+            {
+                "typePiece": 0,
+                "couleurPiece": 0,
+                "turns": 0
+            },
+            {
+                "typePiece": 0,
+                "couleurPiece": 0,
+                "turns": 0
+            },
+            {
+                "typePiece": 0,
+                "couleurPiece": 0,
+                "turns": 0
+            },
+            {
+                "typePiece": 0,
+                "couleurPiece": 0,
+                "turns": 0
+            },
+            {
+                "typePiece": 1,
+                "couleurPiece": 1,
+                "turns": 0
+            }
+        ],
+        [
+            {
+                "typePiece": 0,
+                "couleurPiece": 0,
+                "turns": 0
+            },
+            {
+                "typePiece": 1,
+                "couleurPiece": 2,
+                "turns": 0
+            },
+            {
+                "typePiece": 0,
+                "couleurPiece": 0,
+                "turns": 0
+            },
+            {
+                "typePiece": 0,
+                "couleurPiece": 0,
+                "turns": 0
+            },
+            {
+                "typePiece": 0,
+                "couleurPiece": 0,
+                "turns": 0
+            },
+            {
+                "typePiece": 0,
+                "couleurPiece": 0,
+                "turns": 0
+            },
+            {
+                "typePiece": 1,
+                "couleurPiece": 1,
+                "turns": 0
+            }
+        ],
+        [
+            {
+                "typePiece": 0,
+                "couleurPiece": 0,
+                "turns": 0
+            },
+            {
+                "typePiece": 1,
+                "couleurPiece": 2,
+                "turns": 0
+            },
+            {
+                "typePiece": 0,
+                "couleurPiece": 0,
+                "turns": 0
+            },
+            {
+                "typePiece": 0,
+                "couleurPiece": 0,
+                "turns": 0
+            },
+            {
+                "typePiece": 0,
+                "couleurPiece": 0,
+                "turns": 0
+            },
+            {
+                "typePiece": 0,
+                "couleurPiece": 0,
+                "turns": 0
+            },
+            {
+                "typePiece": 1,
+                "couleurPiece": 1,
+                "turns": 0
+            }
+        ],
+        [
+            {
+                "typePiece": 0,
+                "couleurPiece": 0,
+                "turns": 0
+            },
+            {
+                "typePiece": 1,
+                "couleurPiece": 2,
+                "turns": 0
+            },
+            {
+                "typePiece": 0,
+                "couleurPiece": 0,
+                "turns": 0
+            },
+            {
+                "typePiece": 0,
+                "couleurPiece": 0,
+                "turns": 0
+            },
+            {
+                "typePiece": 0,
+                "couleurPiece": 0,
+                "turns": 0
+            },
+            {
+                "typePiece": 0,
+                "couleurPiece": 0,
+                "turns": 0
+            },
+            {
+                "typePiece": 1,
+                "couleurPiece": 1,
+                "turns": 0
+            },
+            {
+                "typePiece": 5,
+                "couleurPiece": 2,
+                "turns": 0
+            }
+        ],
+        [
+            {
+                "typePiece": 0,
+                "couleurPiece": 0,
+                "turns": 0
+            },
+            {
+                "typePiece": 1,
+                "couleurPiece": 2,
+                "turns": 0
+            },
+            {
+                "typePiece": 0,
+                "couleurPiece": 0,
+                "turns": 0
+            },
+            {
+                "typePiece": 0,
+                "couleurPiece": 0,
+                "turns": 0
+            },
+            {
+                "typePiece": 0,
+                "couleurPiece": 0,
+                "turns": 0
+            },
+            {
+                "typePiece": 0,
+                "couleurPiece": 0,
+                "turns": 0
+            },
+            {
+                "typePiece": 1,
+                "couleurPiece": 1,
+                "turns": 0
+            },
+            {
+                "typePiece": 6,
+                "couleurPiece": 2,
+                "turns": 0
+            }
+        ],
+        [
+            {
+                "typePiece": 0,
+                "couleurPiece": 0,
+                "turns": 0
+            },
+            {
+                "typePiece": 1,
+                "couleurPiece": 2,
+                "turns": 0
+            },
+            {
+                "typePiece": 0,
+                "couleurPiece": 0,
+                "turns": 0
+            },
+            {
+                "typePiece": 0,
+                "couleurPiece": 0,
+                "turns": 0
+            },
+            {
+                "typePiece": 0,
+                "couleurPiece": 0,
+                "turns": 0
+            },
+            {
+                "typePiece": 0,
+                "couleurPiece": 0,
+                "turns": 0
+            },
+            {
+                "typePiece": 1,
+                "couleurPiece": 1,
+                "turns": 0
+            },
+            {
+                "typePiece": 2,
+                "couleurPiece": 2,
+                "turns": 0
+            }
+        ],
+        [
+            {
+                "typePiece": 0,
+                "couleurPiece": 0,
+                "turns": 0
+            },
+            {
+                "typePiece": 1,
+                "couleurPiece": 2,
+                "turns": 0
+            },
+            {
+                "typePiece": 0,
+                "couleurPiece": 0,
+                "turns": 0
+            },
+            {
+                "typePiece": 0,
+                "couleurPiece": 0,
+                "turns": 0
+            },
+            {
+                "typePiece": 0,
+                "couleurPiece": 0,
+                "turns": 0
+            },
+            {
+                "typePiece": 0,
+                "couleurPiece": 0,
+                "turns": 0
+            },
+            {
+                "typePiece": 1,
+                "couleurPiece": 1,
+                "turns": 0
+            },
+            {
+                "typePiece": 4,
+                "couleurPiece": 2,
+                "turns": 0
+            }
+        ],
+        [
+            {
+                "typePiece": 0,
+                "couleurPiece": 0,
+                "turns": 0
+            },
+            {
+                "typePiece": 1,
+                "couleurPiece": 2,
+                "turns": 0
+            },
+            {
+                "typePiece": 0,
+                "couleurPiece": 0,
+                "turns": 0
+            },
+            {
+                "typePiece": 0,
+                "couleurPiece": 0,
+                "turns": 0
+            },
+            {
+                "typePiece": 0,
+                "couleurPiece": 0,
+                "turns": 0
+            },
+            {
+                "typePiece": 0,
+                "couleurPiece": 0,
+                "turns": 0
+            },
+            {
+                "typePiece": 1,
+                "couleurPiece": 1,
+                "turns": 0
+            },
+            {
+                "typePiece": 3,
+                "couleurPiece": 2,
+                "turns": 0
+            }
+        ]
+    ],
+    "turns": 0
+}

@@ -52,7 +52,7 @@ class ExtendedClient extends Client {
         const slashCommands = []
         const commandFiles = glob.sync(
             path
-                .join(process.cwd(), "src", "commands", "*{.ts,.js}")
+                .join(process.cwd(), "src", "commands", "*", "*{.ts,.js}")
                 .split(path.sep)
                 .join("/")
         )
